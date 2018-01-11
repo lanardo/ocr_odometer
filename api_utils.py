@@ -141,7 +141,7 @@ def make_request(cv_img, feature_types):
 class ApiUtils:
     def __init__(self):
         self.endpoint_url = 'https://vision.googleapis.com/v1/images:annotate'
-        self.api_key = 'AIzaSyCSqfhtZXwEy8JxJRtUYm31YWLC1aACUMg'
+        self.api_key = 'XXX'
 
     def __get_response(self, json_data):
         try:
@@ -181,11 +181,10 @@ class ApiUtils:
                 for i in range(1, len(annos)):
                     correlate_orientation(points=annos[i]['boundingPoly']['vertices'], orientation=ori,
                                           img_width=width, img_height=height)
-
                     pt0 = annos[i]['boundingPoly']['vertices'][0]
                     pt1 = annos[i]['boundingPoly']['vertices'][2]
                     # cv2.rectangle(img, (pt0['x'], pt0['y']), (pt1['x'], pt1['y']), (255, 0, 0), 1)
-                    print annos[i]['description']
+                    print(annos[i]['description'])
 
                 return annos, img
 
